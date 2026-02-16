@@ -1,6 +1,6 @@
 import type {State} from "./state.js";
 
-export function commandHelp(state:State){
+export async function commandHelp(state:State):Promise<void>{
     console.log("Usage: ")
     console.log();
     for( const key in state.commands){
