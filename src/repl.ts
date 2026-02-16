@@ -23,12 +23,16 @@ export async function startREPL() {
             }
 
         }
-        stateRepl.rl.prompt()
+        
         }
         catch(error){
             if (error instanceof Error){
                 console.log(error.message)
+                
             }
+        }
+        finally{
+            stateRepl.rl.prompt();
         }
         
         

@@ -4,6 +4,7 @@ import { stdin, stdout } from 'node:process';
 import { getCommands } from "./registry_commands.js";
 import { PokeApi } from "./pokeapi.js";
 import { Cache } from "./pokecache.js";
+import type { PokemonApi } from "./pokemontypes.js";
 
 
 
@@ -18,7 +19,8 @@ export interface State {
     client:PokeApi,
     nextLocationsURL?:string,
     prevLocationsURL?:string,
-    cache:Cache
+    cache:Cache,
+    pokedex:Record<string,PokemonApi>
 }
 
 export function initState():State{
@@ -32,7 +34,8 @@ export function initState():State{
         rl,
         commands,
         client:new PokeApi(),
-        cache:new Cache(5_0000)
+        cache:new Cache(5_0000),
+        pokedex:{}
     }
 
 }

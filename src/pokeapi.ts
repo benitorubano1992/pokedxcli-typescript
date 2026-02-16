@@ -1,3 +1,6 @@
+import type { PokemonApi } from "./pokemontypes"
+
+
 export class PokeApi{
     private static readonly baseURL = "https://pokeapi.co/api/v2"
 
@@ -8,7 +11,7 @@ export class PokeApi{
     }
     return await resp.json()
 }
-    async fetchLocation(locationName: string): Promise<RespLocation> {
+  async fetchLocation(locationName: string): Promise<RespLocation> {
         let url = `${PokeApi.baseURL}/location-area/${locationName}`;
         
         const resp = await fetch(url);
@@ -16,8 +19,20 @@ export class PokeApi{
         throw new Error(`error fetching url:${url}, staus:${resp.status}`)
         }
         return await resp.json()
-    }
+  }
+async fetchPokemonByName(pokemonName:string):Promise<PokemonApi>{
+   let url = `${PokeApi.baseURL}/pokemon/${pokemonName}`;
+        
+        const resp = await fetch(url);
+        if (!resp.ok){
+        throw new Error(`error fetching url:${url}, staus:${resp.status}`)
+        }
+        return await resp.json()
 }
+  
+
+
+  }
 
 export type ShallowLocations={
     count:number,

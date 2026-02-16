@@ -3,6 +3,7 @@ import { commandExpolore } from "./command_explore.js";
 import { commandHelp } from "./command_help.js";
 import { commandMap } from "./command_map.js";
 import { commandMapB } from "./command_mapb.js";
+import { commandCatchPokemon } from "./commandCatchPokemon.js";
 
 import type { CLICommand } from "./state.js";
 
@@ -41,6 +42,11 @@ export function getCommands():Record<string,CLICommand>{
             name:"explore",
             description:"Explore a location area",
             callback:commandExpolore
+        },
+        "catch":{
+            name:"catch",
+            description:"catch a pokemon by name",
+            callback:commandCatchPokemon
         }
     }
 }
