@@ -10,7 +10,7 @@ import { Cache } from "./pokecache.js";
 export interface CLICommand{
     name:string,
     description:string,
-    callback:(state:State)=>Promise<void>
+    callback:(state:State,...otherInput:string[])=>Promise<void>
 };
 export interface State {
     rl:Interface,

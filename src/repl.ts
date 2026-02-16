@@ -14,12 +14,12 @@ export async function startREPL() {
         try{
             if (inputArr.length > 0) {
             
-            let command = inputArr[0];
+            const [command,...restInput] = inputArr;
             const cliCommand = stateRepl.commands[command];
             if (cliCommand === undefined){
                 console.log("Unknown command")
             }else{
-                await cliCommand.callback(stateRepl);
+                await cliCommand.callback(stateRepl,...restInput);
             }
 
         }

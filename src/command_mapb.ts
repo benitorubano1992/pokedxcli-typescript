@@ -1,11 +1,11 @@
 import type { State } from "./state";
-import type {ShallowLocations,LocationArea} from "./pokeapi";
+import type {ShallowLocations,Location} from "./pokeapi";
 
-export async function commandMapB(state:State):Promise<void> {
+export async function commandMapB(state:State,...otherInput:string[]):Promise<void> {
     //const locationsResult = await state.client.fetchLocations(state.prevLocationsURL);
      let url = state.prevLocationsURL ?? "https://pokeapi.co/api/v2/location-area/";
            let result = state.cache.get(url);
-            let locationArr:LocationArea[]=[];
+            let locationArr:Location[]=[];
            if(result === undefined){
             console.log(`not found key ${url} in the cache`);  
             const locationsResult = await state.client.fetchLocations(url);

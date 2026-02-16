@@ -1,4 +1,5 @@
 import { commandExit } from "./command_exit.js";
+import { commandExpolore } from "./command_explore.js";
 import { commandHelp } from "./command_help.js";
 import { commandMap } from "./command_map.js";
 import { commandMapB } from "./command_mapb.js";
@@ -35,6 +36,11 @@ export function getCommands():Record<string,CLICommand>{
             name:"mapb",
             description:"Get the previous 20 locations_area",
             callback:commandMapB
+        },
+        "explore":{
+            name:"explore",
+            description:"Explore a location area",
+            callback:commandExpolore
         }
     }
 }
